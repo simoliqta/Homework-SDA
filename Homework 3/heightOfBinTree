@@ -1,0 +1,15 @@
+int height(Node* root) {
+    int MAX = 0;
+    int leftHeight = 0, rightHeight = 0;
+    if(root->right){
+        rightHeight++;
+        rightHeight += height(root->right);
+    }
+    if(root->left){
+        leftHeight++;
+        leftHeight += height(root->left);
+    }
+    if(leftHeight>rightHeight) MAX = leftHeight;
+    else MAX = rightHeight;
+    return MAX;
+}
